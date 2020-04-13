@@ -1,0 +1,125 @@
+@import "reset.css";
+@import "base.css";
+@import "icons.css";
+@import "modules.css";
+
+#h1-new{
+   background-color: rgb(90, 90, 90);
+   text-align: center;
+   height: 5vh;
+   width: 100vw;
+   line-height: 5vh;
+   color: #f8f8ff;
+   /* padding: 1vh; */
+   /* padding-left: -15vw; */
+   margin: 0 auto;
+/* margin-bottom:0; */
+padding: 15px;
+font-size: x-large;
+}
+header{
+   background-color: black;
+   height: 10vh;
+   padding-top: 8vh;
+   width: 102.6vw;
+   
+}
+html{
+   height: 100vh;
+   width: 100vw;
+   margin: 0;
+   /* padding-bottom: -150px; */
+}
+body{
+   height: 100vh;
+   width: 100vw;
+   margin: 0;
+   /* padding-bottom: -150px; */
+   background-color: rgb(109, 107, 107);
+}
+main{
+   padding-left: 15vw;
+   padding-right: 15vw;
+   height: 100vh;
+   width: 100vw;
+
+}
+
+#main-form{
+   margin: 15vh;
+   
+
+}
+.form-example{
+height: 2vh;
+/* padding: 5vh; */
+width: 53vw;
+padding: 1vh;
+background-color: rgb(138, 136, 136);
+margin: 5vh;
+}
+
+.form-example #Title,.form-example #Author{
+   /* background-color: thistle; */
+   /* height: 5vh; */
+   width: 15vw;
+    
+
+}
+#para-nav{
+   color: white;
+   padding-left: 5vw;
+   font-size: xx-large;
+   /* padding-bottom: 1.5vh; */
+   /* margin-bottom:-3vh; */
+   margin-top: -2.5vh;
+}
+#div-nav{
+   padding-bottom: 3vh;
+   width: 103vw;
+}
+/* #Title-label , #Author-label{
+   background-color: rgb(196, 196, 196);
+   height: 150vh;
+   width: 150vw;
+  
+} */
+/* #submit-form{
+   background-color: black;
+   color: white;
+   text-align: center;
+   height: 5vh;
+/* padding: 5vh; */
+/* width: 50vw;
+padding: 3vh; */
+/* background-color: rgb(138, 136, 136); */
+/* margin: 5vh;
+
+} */ 
+
+#Search-form{
+   height: 8vh;
+   width: 61vw;
+   padding-left: 2px;
+   text-align: left;
+   margin: -3vh;
+}
+
+#submit-form {
+   background-color: black;
+   color: white;
+   text-align: center;
+   height: 8vh;
+   width: 61vw;
+   padding: 4vh;
+   margin: -3vh;
+   margin-left: 7vw;
+   font-size: larger;
+}
+
+footer{
+   height: 15vh;
+   width: 100vw;
+   background-color: black ;
+   width: 102vw;
+}
