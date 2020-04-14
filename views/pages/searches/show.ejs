@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%-include('../../layout/head')%>
-    <title>Show Searches</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+    <!-- <link rel="stylesheet" href="/public/styles/layout.css" type="text/css"> -->
 </head>
 <body>
-    <header>
-        <%-include('../../layout/header')%>
-    </header>
-    <main>
-        <%-include('../../layout/anchor')%>
-   <section>
-
-   
+    <h1>Hello</h1>
     <ul>
-        <% bookChoice.forEach(items => {%>
-       <img src="<%=items.image%>" >
-       <h2><%=items.title %></h2>
-       <h3><%=items.author %></h3>
-       <p><%=items.description %></p> 
+        <% bookTable.forEach(item => {%>
+       <img src="<%=item.imgUrl%>" >
+       <h2><%=item.title %></h2>
+       <h3><%=item.authors %></h3>
+       <p><%=item.desc %></p> 
+
+
        <%})%>
     </ul>
 </section>
