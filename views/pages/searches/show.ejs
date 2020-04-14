@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show</title>
-    <link rel="stylesheet" href="/public/styles/layout.css" type="text/css">
+    <%-include('../../layout/head')%>
+    <title>Show Searches</title>
 </head>
 <body>
+    <header>
+        <%-include('../../layout/header')%>
+    </header>
+    <main>
+        <%-include('../../layout/anchor')%>
+   <section>
+
+   
     <ul>
-        <% book.forEach(item => {%>
-       <img src="<%=item.image%>" >
-       <h2><%=item.title %></h2>
-       <h3><%=item.author %></h3>
-       <p><%=item.description %></p> 
+        <% bookChoice.forEach(items => {%>
+       <img src="<%=items.image%>" >
+       <h2><%=items.title %></h2>
+       <h3><%=items.author %></h3>
+       <p><%=items.description %></p> 
        <%})%>
     </ul>
+</section>
+
+
+</main>
+<footer>
+
+</footer>
 </body>
 </html>

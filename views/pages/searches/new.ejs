@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New</title>
-    <link rel="stylesheet" href="/public/styles/layout.css" type="text/css">
+   <%-include('../../layout/head')%>
+   <title>New Searches</title>
 </head>
 <body>
 
   <header>
-<div id="div-nav">
-  <nav>
-    <p id="para-nav">Best Book !</p>
-  </nav>
-</div>
+    <%-include('../../layout/header')%>
     <div>
       <h1 id="h1-new">Search by Title Or Author</h1>
     </div>
   </header>
    <main>
-     <form action="" method="post"  action="searches/new" id="main-form">
+    <%-include('../../layout/anchor')%>
+    <section>
+
+  
+     <form action="/searches/new" method="POST"   id="main-form">
+      <fieldset>
+<legend> Add a book</legend>
+     
       <div class="form-example">
         <input type="text" name="SearchForm" value="Enter a title or author" id="Search-form" required>
       </div>
@@ -34,7 +35,9 @@
       <div >
         <input type="submit" value="Search the Google Books API" id="submit-form" >
       </div>
+    </fieldset>
     </form>
+  </section>
   </main>
   <footer>
 
