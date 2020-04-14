@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 //     res.render('pages/index');
 // });
 app.get('/searches/new', (req, res) => {
-  res.render('pages/searches/new');
+  res.render('pages/searches/show');
   
 });
 app.get('/error', (req, res) => {
@@ -33,22 +33,32 @@ app.get('/hello', (req, res) => {
 });
 
 
-app.get('/searches', (req, res) => {
+app.get('/addNew', (req, res) => {
   res.render('pages/searches/new');
 });
-app.post('/searches', (req, res) => {
+app.post('/searches', (req, res) => { 
 
-  let SearchForm = request.body.SearchForm;
-  let radioInput = request.body.radioInput;
+  let SearchForm = req.body.SearchForm;
+  let radioInput = req.body.radioInput;
+  console.log(req.body.SearchForm);
+  console.log(req.body.radioInput);
   const url = `https://www.googleapis.com/books/v1/volumes?q=${SearchForm}+in${radioInput}`;
-  superagent.get(url).then((apiResponse) => {
-    console.log(apiResponse.body.items[0]);
-    console.log(path);
-    let book = apiResponse.body.items;
-    let books = book.map(item => {
+   superagent.get(url)
+   .then((apiResponse) => {
+    // console.log(apiResponse.body);
+    // console.log(apiResponse.body.items[0]);
+    // console.log(path);
+    
+    // console.log("Hiiiiiii");
+    let bookData = apiResponse.body.items;
+    // console.log(bookData);
+    let books = bookData.map(item => {
       return new Books(item);
+      //  res.render('pages/searches/show', { bookTable: books });
     })
-    response.render('pages/searches/show', { books: books });
+    console.log(books); 
+    console.log('hello')
+    res.render('pages/searches/show', { bookTable: books });
   }).catch((err) => errorHandler(err, req, res));
 })
 app.use('*', (req, res) => {
@@ -57,11 +67,15 @@ app.use('*', (req, res) => {
 
 app.listen(PORT, () => { console.log(`Server is Running on PORT ${PORT}`) });
 
-function Books(book) {
-  this.title = book.title ;
-  this.author = book.author;
-  this.description = book.description;
-  this.image =book.image;
+function Books(data) {
+  // this.title = (book.title)? ;
+  // this.author = book.author;
+  // this.description = book.description;
+  // this.image =book.image;
+  this.title = data.volumeInfo.title? data.volumeInfo.title: "No Title Available";
+    this.imgUrl = (data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail) ? data.volumeInfo.imageLinks.thumbnail:"https://i.imgur.com/J5LVHEL.jpg";
+    this.authors = data.volumeInfo.authors? data.volumeInfo.authors: "No Authors";
+    this.desc = data.volumeInfo.description? data.volumeInfo.description:"No description available";
 }
 function errorHandler(error, req, res) {
   res.status(500).send(error);

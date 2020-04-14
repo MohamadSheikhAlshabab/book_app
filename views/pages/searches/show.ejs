@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show</title>
-    <link rel="stylesheet" href="/public/styles/layout.css" type="text/css">
+    <!-- <link rel="stylesheet" href="/public/styles/layout.css" type="text/css"> -->
 </head>
 <body>
+    <h1>Hello</h1>
     <ul>
-        <% book.forEach(item => {%>
-       <img src="<%=item.image%>" >
+        <% bookTable.forEach(item => {%>
+       <img src="<%=item.imgUrl%>" >
        <h2><%=item.title %></h2>
-       <h3><%=item.author %></h3>
-       <p><%=item.description %></p> 
+       <h3><%=item.authors %></h3>
+       <p><%=item.desc %></p> 
        <%})%>
     </ul>
 </body>
