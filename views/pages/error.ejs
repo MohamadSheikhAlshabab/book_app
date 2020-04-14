@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%-include('../layout/head')%>
     <title>Error</title>
-    <link rel="stylesheet" href="/public/styles/layout.css" type="text/css">
 </head>
 <body>
+    <header>
+        <%-include('../layout/header')%>
+    </header>
+    <main>
+        <%-include('../layout/anchor')%>
+        <section>
+            <article>
+                <p>
+                    <%=error%>
+                </p>
+            </article>
+        </section>
+
+    </main>
+    <footer>
+        
+    </footer>
     
 </body>
 </html>
