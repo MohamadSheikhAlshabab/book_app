@@ -26,8 +26,16 @@ app.get('/',getBooks);
 app.get('/books/:id',getOneBook);
 
 app.get('/searches/new', (req, res) => {
+// <<<<<<< lab-13
   console.log('111111111111111111');
   res.render('./pages/searches/show');
+// =======
+// // <<<<<<< lab-11
+//   res.render('pages/searches/show');
+// // =======
+// //   res.render('./pages/searches/new');
+// // >>>>>>> master
+// >>>>>>> master
   
 });
 app.get('/error', errorHandler);
@@ -42,18 +50,21 @@ app.get('/hello', (req, res) => {
 });
 
 
+// <<<<<<< lab-13
 app.get('/addNew', (req, res) => {
   console.log('6666666666666666666666');
   res.render('./pages/searches/new');
+// =======
+// // <<<<<<< lab-11
+// app.get('/addNew', (req, res) => {
+//   res.render('pages/searches/new');
+// >>>>>>> master
 });
-app.post('/books',addBook);
-app.post('/searches', (req, res) => {
+app.post('/searches', (req, res) => { 
 
-  console.log(req.body); 
-    console.log(req.body.SearchForm);
-    console.log(req.body.radioInput);
   let SearchForm = req.body.SearchForm;
   let radioInput = req.body.radioInput;
+// <<<<<<< lab-13
   // const url = `https://www.googleapis.com/books/v1/volumes?SearchForm=${req.body.SearchForm}&radioInput${req.body.radioInput}&key=${BOOKS_API_KEY}`;
   const url = `https://www.googleapis.com/books/v1/volumes?q=${SearchForm}+in${radioInput}`;
   superagent.get(url).then((apiResponse) => {
@@ -67,6 +78,53 @@ app.post('/searches', (req, res) => {
     res.render('./pages/searches/show', { abookTable: bookks });
   })
   .catch((err) =>{ errorHandler(err, req, res)});
+// =======
+//   console.log(req.body.SearchForm);
+//   console.log(req.body.radioInput);
+//   const url = `https://www.googleapis.com/books/v1/volumes?q=${SearchForm}+in${radioInput}`;
+//    superagent.get(url)
+//    .then((apiResponse) => {
+//     // console.log(apiResponse.body);
+//     // console.log(apiResponse.body.items[0]);
+//     // console.log(path);
+    
+//     // console.log("Hiiiiiii");
+//     let bookData = apiResponse.body.items;
+//     // console.log(bookData);
+//     let books = bookData.map(item => {
+// // =======
+// // app.get('/searches', (req, res) => {
+// //   res.render('./pages/searches/new');
+// // });
+// // app.post('/books',addBook);
+// // app.post('/searches', (req, res) => {
+
+// //   console.log(req.body); 
+// //     console.log(req.body.SearchForm);
+// //     console.log(req.body.radioInput);
+// //   let SearchForm = req.body.SearchForm;
+// //   let radioInput = req.body.radioInput;
+// //   const url = `https://www.googleapis.com/books/v1/volumes?SearchForm=${req.body.SearchForm}&radioInput${req.body.radioInput}&key=${BOOKS_API_KEY}`;
+// //   superagent.get(url).then((apiResponse) => {
+// //     console.log(apiResponse.body.items[0]);
+// //     console.log(path);
+// //     let book = apiResponse.body.items;
+// //     let books = book.map(item => {
+// // >>>>>>> master
+//       return new Books(item);
+//       //  res.render('pages/searches/show', { bookTable: books });
+//     })
+// // <<<<<<< lab-11
+//     console.log(books); 
+//     console.log('hello')
+//     res.render('pages/searches/show', { bookTable: books });
+//   }).catch((err) => errorHandler(err, req, res));
+// // =======
+// //     response.render('./pages/searches/show', { bookChoice: books });
+// //   }).catch((err) =>{ errorHandler(err, req, res)
+// //   console.log('here error handler from catch')});
+// // >>>>>>> master
+// >>>>>>> master
 })
 
 
@@ -115,10 +173,31 @@ app.use('*',notFoundHandler);
 
 app.listen(PORT, () => { console.log(`Server is Running on PORT ${PORT}`) });
 
+// <<<<<<< lab-13
 function errorHandler(err, req, res) {
   console.log('here error handler');
   res.status(500).render('./pages/error');
 }
 function notFoundHandler(req, res) {
   res.status(404).send('Page Not Found !!!!!!!!');
+// // =======
+// // // <<<<<<< lab-11
+// function Books(data) {
+//   // this.title = (book.title)? ;
+//   // this.author = book.author;
+//   // this.description = book.description;
+//   // this.image =book.image;
+//   this.title = data.volumeInfo.title? data.volumeInfo.title: "No Title Available";
+//     this.imgUrl = (data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail) ? data.volumeInfo.imageLinks.thumbnail:"https://i.imgur.com/J5LVHEL.jpg";
+//     this.authors = data.volumeInfo.authors? data.volumeInfo.authors: "No Authors";
+//     this.desc = data.volumeInfo.description? data.volumeInfo.description:"No description available";
+// // // =======
+// // // function errorHandler(err, req, res) {
+// // //   res.status(500).render('./pages/error');
+// // //   console.log('here error handler');
+// // // }
+// // // function notFoundHandler(req, res) {
+// // //   res.status(404).send('Page Not Found !!!!!!!!');
+// // // >>>>>>> master
+// // >>>>>>> master
 }
