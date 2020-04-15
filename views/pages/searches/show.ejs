@@ -10,12 +10,12 @@
 <body>
     <h1>Hello</h1>
     <ul>
-        <% bookTable.forEach(item => {%>
-       <img src="<%=item.imgUrl%>" >
-       <h2><%=item.title %></h2>
-       <h3><%=item.authors %></h3>
-       <p><%=item.desc %></p> 
 
+        <% abookTable.forEach(itemes => {%>
+            <img src="<%=itemes.imgUrl%>" >
+       <h2><%=itemes.title %></h2>
+       <h3><%=itemes.authors %></h3>
+       <p><%=itemes.desc %></p> 
 
        <%})%>
     </ul>
