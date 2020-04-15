@@ -14,11 +14,11 @@
 
    
     <ul>
-        <% bookChoice.forEach(items => {%>
-       <img src="<%=items.image%>" >
-       <h2><%=items.title %></h2>
-       <h3><%=items.author %></h3>
-       <p><%=items.description %></p> 
+        <% abookTable.forEach(itemes => {%>
+            <img src="<%=itemes.imgUrl%>" >
+       <h2><%=itemes.title %></h2>
+       <h3><%=itemes.authors %></h3>
+       <p><%=itemes.desc %></p> 
        <%})%>
     </ul>
 </section>
