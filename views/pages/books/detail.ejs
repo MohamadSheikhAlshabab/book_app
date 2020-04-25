@@ -1,29 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+
     <%-include('../../layout/head')%>
-    <title>Detail Books</title>
-</head>
-<body>
-    <header>
+
+
+
+
         <%-include('../../layout/header')%>
-    </header>
-    <main>
+
         <%-include('../../layout/anchor')%>
-        <section>
-            <h4> Book: <%=oneBook.title%></h4>
-            <p>author<%=oneBook.author%></p>
-            <p>title<%=oneBook.title%></p>
-            <p>isbn<%=oneBook.isbn%></p>
-            <p>image_url<%=oneBook.image_url%></p>
-            <p>description<%=oneBook.description%></p>
-            <p>bookshelf<%=oneBook.bookshelf%></p>
+
+        <section id="my-section">
+          <img src="<%= book.image_url %>">
+          <h3><%= book.title%></h3>
+          <h4><%= book.author %></h4>
+          <p><%=  book.description %></p>
+          <p><%=  book.isbn %></p>
+          <p><%=  book.bookshelf %></p>
         </section>
 
-    </main>
-    <footer>
-
-    </footer>
-    
-</body>
-</html>
+ 

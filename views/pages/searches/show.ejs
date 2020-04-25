@@ -7,26 +7,45 @@
 <body>
     <header>
         <%-include('../../layout/header')%>
+        <%-include('../../layout/anchor')%>
     </header>
     <main>
-        <%-include('../../layout/anchor')%>
-   <section>
-
-   
-    <ul>
-        <% abookTable.forEach(itemes => {%>
-            <img src="<%=itemes.imgUrl%>" >
-       <h2><%=itemes.title %></h2>
-       <h3><%=itemes.authors %></h3>
-       <p><%=itemes.desc %></p> 
-       <%})%>
-    </ul>
-</section>
-
+        <% book.forEach(val => { %>      
+            <div class="container">
+                <img src="<%= val.image_url %>">
+                <h3><%= val.title%></h3>
+                <h4><%= val.author %></h4>
+                <p><%= val.description%></p>
+                <button class="open-button" onclick="openForm()">Select This Book</button>
+                
+                  <form action="/books" method="POST" id="book-form" class="form-container">      
+                    <input type="text" name="image_url" value="<%= val.image_url %>" style="display: none;"> 
+                    <input type="text" name="title" value="<%= val.title%>" />
+                    <input type="text" name="author"  value="<%= val.author%>"/>
+                    <input type="text" name="isbn" value="<%= val.isbn%>" />
+                    <input type="text" name="description" value="<%= val.description%>" />
+                    <input type="text" name="bookShelf" placeholder="Enter the shelf name !"  required/>
+                    <button type="submit">Add to Database </button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                  </form>
+              </div>
+            <% }) %>
 
 </main>
 <footer>
 
 </footer>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<script>
+    
+    function openForm() {
+      document.getElementById("book-form").style.display = "block";
+    }
+    
+    function closeForm() {
+      document.getElementById("book-form").style.display = "none";
+    }
+    </script>
 </body>
 </html>
