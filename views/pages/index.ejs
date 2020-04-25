@@ -7,12 +7,24 @@
 <body>
     <header>
         <%-include('../layout/header')%>
+        <%-include('../layout/anchor')%>
     </header>
     <main>
-
-    
-    <h1>Hello World !</h1>
-    <%-include('../layout/anchor')%>
+        <h1><%=book.length%> Saved Books</h1>
+        <div>
+            <% book.forEach(item => {%>
+                <section>
+                    <img src="<%=item.imgUrl%>">
+                    <h2><%=item.title%></h2>
+                    <h3><%=item.authors%></h3>
+                    <p><%= item.desc %></p>
+                    <p><%= item.isbn %></p>
+                    <p><%= item.bookshelf %></p>
+                    <a class="btn" href="/books/<%=item.id%>">View Details</a>
+                </section>
+            <%})%>
+        </div>
+   
 </main>
 <footer>
 

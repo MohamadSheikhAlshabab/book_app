@@ -13,31 +13,18 @@
     </div>
   </header>
    <main>
+    <%-include('../../layout/anchor')%>
 
-
-  
-      <form  method="POST"  action="searches" id="main-form">
-      <fieldset>
-<legend> Add a book</legend>
-     
-
-      <div class="form-example">
-        <input type="text" name="SearchForm" value="Enter a title or author" id="Search-form" required>
-      </div>
-      <div class="form-example">
-        <label for="Title" id="Title-label">Title 
-        <input type="radio" name="radioInput" value="Title" id="Title" >
-      </label></div>
-      <div class="form-example">
-        <label for="Author" id="Author-label">Author 
-        <input type="radio" name="radioInput" value="Author" id="Author" ></label>
-      </div>
-      <div >
-        <input type="submit" value="Search the Google Books API" id="submit-form" >
-      </div>
-    </fieldset>
+    <form action="/searches" method="post">
+      <input type="text" placeholder="Enter a Title or Author" name="search" required><br>
+      <label>Title
+      <input type="radio" name="radio" value="title" required>
+      </label><br>
+      <label>Author
+      <input type="radio" name="radio" value="author" required>
+      </label><br>
+      <button>Search for Google Books API </button>
     </form>
-  </section>
   </main>
   <footer>
 
